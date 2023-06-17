@@ -21,9 +21,9 @@ int main(void)
 			digit3 = 0;
 			while (digit3 <= 9)
 			{
-				if (digti1 != digit2 &&
+				if (digit1 != digit2 &&
 				    digit1 < digit2 &&
-				    digit2 != digti3 &&
+				    digit2 != digit3 &&
 				    digit2 < digit3)
 				{
 					putchar(digit1 + 48);
@@ -40,7 +40,7 @@ int main(void)
 			}
 			digit2++;
 		}
-		digit1;
+		digit1++;
 	}
 	putchar('\n');
 
