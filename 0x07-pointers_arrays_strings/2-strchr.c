@@ -4,7 +4,6 @@
  * _strchr - main function
  * @s: pointer to put the constant
  * @c: constant
- * @n: length of src to be copied
  *
  * Return: pointer to s
  */
