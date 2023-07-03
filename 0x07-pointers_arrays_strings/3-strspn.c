@@ -4,7 +4,6 @@
  * _strspn - main function
  * @s: pointer to put the constant
  * @accept: constant
- * @n: length of src to be copied
  *
  * Return: unsigned int
  */
