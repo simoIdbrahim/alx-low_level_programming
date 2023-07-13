@@ -22,7 +22,7 @@ char *_memset(char *s, char b, unsigned int n)
 }
 
 /**
- * **_calloc - main function.
+ * *_calloc - main function.
  * @nmemb: array length.
  * @size: size of each element.
  * Return: pointer.
