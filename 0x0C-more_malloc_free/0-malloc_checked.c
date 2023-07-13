@@ -1,10 +1,8 @@
 #include "main.h"
-#include <stdlib.h>
-#include <limits.h>
 
 /**
  * malloc_checked - main function.
- * @@b: int.
+ * @b: int.
  * Return: pointer to the array initialized or NULL
  */
 
