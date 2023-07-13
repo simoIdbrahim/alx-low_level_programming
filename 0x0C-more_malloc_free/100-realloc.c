@@ -4,7 +4,7 @@
  * _realloc - main function.
  * @ptr: pointer to memory allocated with malloc(olf_size).
  * @old_size: size in bytes of the allocated space for ptr.
- * @old_size: size in bytes of the new memory block.
+ * @new_size: size in bytes of the new memory block.
  *
  * Return: NULL if new_size = 0 and ptr is not NULL.
  */
