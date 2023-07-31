@@ -1,4 +1,4 @@
-#include "main.h"
+#include "lists.h"
 
 /**
  * print_listint - main function
@@ -6,6 +6,7 @@
  *
  * Return: size int.
  */
+
 size_t print_listint(const listint_t *h)
 {
 	size_t number = 0;
