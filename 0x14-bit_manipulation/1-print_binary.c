@@ -8,21 +8,19 @@
 
 void print_binary(unsigned long int n)
 {
-	int index, counter = 0;
-	unsigned long int currentNum;
+	int b = sizeof(n) * 8, print = 0;
 
-	for (index = 63; index >= 0; index--)
+	while (b)
 	{
-		currentNum = n >> index;
-
-		if (currentNum & 1)
+		if (n & 1L << --b)
 		{
 			putchar('1');
-			counter++;
+			print++;
 		}
-		else if (counter)
+		else if (print)
 			putchar('0');
 	}
-	if (counter)
+
+	if (!print)
 		putchar('0');
 }
