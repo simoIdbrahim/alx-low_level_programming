@@ -18,7 +18,7 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident);
 void close_elf(int elf);
 
 /**
- * check_elf -function
+ * check_elf - function one
  * @e_ident: arg.
  * Description: exit code
  */
@@ -41,7 +41,7 @@ void check_elf(unsigned char *e_ident)
 }
 
 /**
- * print_magic - function.
+ * print_magic - function two
  * @e_ident: arg
  * Description: number space.
  */
@@ -64,7 +64,7 @@ void print_magic(unsigned char *e_ident)
 }
 
 /**
- * print_class - function
+ * print_class - function three
  * @e_ident: arg.
  */
 
@@ -89,7 +89,7 @@ void print_class(unsigned char *e_ident)
 }
 
 /**
- * print_data - function
+ * print_data - function four
  * @e_ident: arg
  */
 
@@ -114,7 +114,7 @@ void print_data(unsigned char *e_ident)
 }
 
 /**
- * print_version - function
+ * print_version - function five
  * @e_ident: arg
  */
 
@@ -135,7 +135,7 @@ void print_version(unsigned char *e_ident)
 }
 
 /**
- * print_osabi - function
+ * print_osabi - function sex
  * @e_ident: arg
  */
 
@@ -181,7 +181,7 @@ void print_osabi(unsigned char *e_ident)
 }
 
 /**
- * print_abi - function
+ * print_abi - function eight
  * @e_ident: arg
  */
 
@@ -192,7 +192,7 @@ void print_abi(unsigned char *e_ident)
 }
 
 /**
- * print_type - function
+ * print_type - function nine
  * @e_typ: arg one
  * @e_ident: arg two
  */
@@ -227,7 +227,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 }
 
 /**
- * print_entry - function
+ * print_entry - function ten
  * @e_entry: arg one
  * @e_ident: arg two
  */
@@ -251,7 +251,7 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 }
 
 /**
- * close_elf: function.
+ * close_elf: function eleven
  * @elf: arge one
  * Description: exit code 98.
  */
@@ -277,7 +277,7 @@ void close_elf(int elf)
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
 	Elf64_Ehdr *header;
-	int o, r;
+	int o, remove;
 
 	o = open(argv[1], O_RDONLY);
 	if (o == -1)
@@ -292,8 +292,8 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
 		exit(98);
 	}
-	r = read(o, header, sizeof(Elf64_Ehdr));
-	if (r == -1)
+	remove = read(o, header, sizeof(Elf64_Ehdr));
+	if (remove == -1)
 	{
 		free(header);
 		close_elf(o);
