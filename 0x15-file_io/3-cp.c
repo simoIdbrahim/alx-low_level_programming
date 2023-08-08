@@ -42,16 +42,19 @@ void close_file(int fd)
 }
 
 /**
- * main -functio three.
- * @argc: arg one.
- * @argv: arg two.
- *
+ * main - Copies the contents of a file to another file.
+ * @argc: arge two.
+ * @argv: arg one.
  * Return: 0 if true.
+ * Description: If the argument count is incorrect - exit code 97.
+ * If file_from does not exist or cannot be read - exit code 98.
+ * If file_to cannot be created or written to - exit code 99.
+ * If file_to or file_from cannot be closed - exit code 100.
  */
 
 int main(int argc, char *argv[])
 {
-	int from, t, remove, w;
+	int from, to, r, w;
 	char *buffer;
 
 	if (argc != 3)
@@ -62,11 +65,11 @@ int main(int argc, char *argv[])
 
 	buffer = create_buffer(argv[2]);
 	from = open(argv[1], O_RDONLY);
-	remove = read(from, buffer, 1024);
-	t = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	r = read(from, buffer, 1024);
+	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
-		if (from == -1 || remove == -1)
+		if (from == -1 || r == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't read from file %s\n", argv[1]);
@@ -74,8 +77,8 @@ int main(int argc, char *argv[])
 			exit(98);
 		}
 
-		w = write(t, buffer, remove);
-		if (t == -1 || w == -1)
+		w = write(to, buffer, r);
+		if (to == -1 || w == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't write to %s\n", argv[2]);
@@ -83,14 +86,15 @@ int main(int argc, char *argv[])
 			exit(99);
 		}
 
-		remove = read(from, buffer, 1024);
-		t = open(argv[2], O_WRONLY | O_APPEND);
+		r = read(from, buffer, 1024);
+		to = open(argv[2], O_WRONLY | O_APPEND);
 
-	} while (remove > 0);
+	} while (r > 0);
 
 	free(buffer);
 	close_file(from);
-	close_file(t);
+	close_file(to);
 
 	return (0);
 }
+
